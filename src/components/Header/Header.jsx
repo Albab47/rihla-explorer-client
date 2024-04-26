@@ -23,11 +23,11 @@ const Header = () => {
 
   const navLinkStyles = ({ isActive }) =>
     isActive
-      ? "block py-2 px-3 text-white bg-amber-700 rounded md:bg-transparent md:text-amber-700 md:p-0 md:dark:text-amber-500"
+      ? "block py-2 px-3 text-white bg-amber-400 rounded md:bg-transparent md:text-amber-400 md:p-0 md:dark:text-amber-500"
       : "block py-2 px-3 text-gray-600 rounded md:p-0 dark:text-gray-100"
 
   return (
-    <nav className="bg-white border-gray-200 dark:bg-gray-900">
+    <nav className="bg-white border-gray-200 dark:bg-gray-900 my-4">
       <div className="max-w-screen-xl relative flex flex-wrap items-center justify-between mx-auto p-4">
         {/* website logo */}
         <Link
@@ -35,8 +35,8 @@ const Header = () => {
           className="flex items-center space-x-3 rtl:space-x-reverse"
         >
           <FcGlobe size={30} />
-          <span className="self-center text-xl md:text-2xl font-semibold whitespace-nowrap dark:text-white">
-            RihlaExplorer
+          <span className="self-center font-display text-xl md:text-2xl font-bold whitespace-nowrap dark:text-white">
+            <span className="text-amber-400">Rihla</span>Explorer
           </span>
         </Link>
 
@@ -87,7 +87,7 @@ const Header = () => {
             </div>
           ) : (
             <div className="flex md:order-2 gap-4 md:space-x-0 rtl:space-x-reverse">
-              <button className="text-amber-700 font-semibold">Sign In</button>
+              <button className="text-dark cursor-pointer hover:text-amber-500 font-medium text-md">Log In</button>
               <Button>Register</Button>
             </div>
           )}
