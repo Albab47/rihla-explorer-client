@@ -87,8 +87,12 @@ const Header = () => {
             </div>
           ) : (
             <div className="flex md:order-2 gap-4 md:space-x-0 rtl:space-x-reverse">
-              <button className="text-dark cursor-pointer hover:text-amber-500 font-medium text-md">Log In</button>
-              <Button>Register</Button>
+              <Link to="/login">
+                <Button btnGhost={true}>Log In</Button>
+              </Link>
+              <Link to="/register">
+                <Button>Register</Button>
+              </Link>
             </div>
           )}
 
