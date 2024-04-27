@@ -1,4 +1,4 @@
-import React from "react";
+import PropTypes from "prop-types"; 
 
 const ErrorMsg = ({children}) => {
   return (
@@ -6,6 +6,10 @@ const ErrorMsg = ({children}) => {
       {children}
     </p>
   );
+};
+
+ErrorMsg.propTypes = {
+  children: PropTypes.node,
 };
 
 export default ErrorMsg;
