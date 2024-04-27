@@ -87,6 +87,7 @@ const RegisterPage = () => {
                 id="photo"
                 placeholder="Photo URL"
                 className="shadow-sm bg-gray-50 border border-gray-200 text-gray-900 text-sm rounded-lg focus:ring-amber-500 focus:border-amber-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-amber-500 dark:focus:border-amber-500 dark:shadow-sm-light"
+                {...register("photoURL", {required: false})}
               />
             </div>
 
@@ -157,6 +158,7 @@ const RegisterPage = () => {
               </div>
             </div>
 
+            {/* terms check field */}
             <div className="flex items-start mb-5">
               <div className="flex items-center h-5">
                 <input
