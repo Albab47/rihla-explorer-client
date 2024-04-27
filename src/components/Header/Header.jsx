@@ -4,6 +4,7 @@ import { FcGlobe } from "react-icons/fc";
 import { FcMenu } from "react-icons/fc";
 import { IoIosClose } from "react-icons/io";
 import Button from "../Button/Button";
+import Logo from "../Logo/Logo";
 
 const Header = () => {
   const [userDropdownOpen, setUserDropdownOpen] = useState(false);
@@ -27,18 +28,10 @@ const Header = () => {
       : "block py-2 px-3 text-gray-600 rounded md:p-0 dark:text-gray-100"
 
   return (
-    <nav className="bg-white border-gray-200 dark:bg-gray-900 my-4">
+    <nav className="bg-white border-gray-200 dark:bg-gray-900 h-16 border-b">
       <div className="max-w-screen-xl relative flex flex-wrap items-center justify-between mx-auto p-4">
         {/* website logo */}
-        <Link
-          to="/"
-          className="flex items-center space-x-3 rtl:space-x-reverse"
-        >
-          <FcGlobe size={30} />
-          <span className="self-center font-display text-xl md:text-2xl font-bold whitespace-nowrap dark:text-white">
-            <span className="text-amber-400">Rihla</span>Explorer
-          </span>
-        </Link>
+        <Logo />
 
         {/* User dropdown + menu btn */}
         <div className="flex items-center relative md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
@@ -88,7 +81,7 @@ const Header = () => {
           ) : (
             <div className="flex md:order-2 gap-4 md:space-x-0 rtl:space-x-reverse">
               <Link to="/login">
-                <Button btnGhost={true}>Log In</Button>
+                <Button btnGhost={true}>Login</Button>
               </Link>
               <Link to="/register">
                 <Button>Register</Button>
