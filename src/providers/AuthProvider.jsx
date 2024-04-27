@@ -9,6 +9,7 @@ const auth = getAuth(app);
 export const AuthContext = createContext();
 
 const AuthProvider = ({children}) => {
+    
 
     const authInfo = {msg: 'Auth info coming..'}
     

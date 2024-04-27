@@ -1,8 +1,7 @@
-import { useContext } from "react";
-import { AuthContext } from "../providers/AuthProvider";
+import useAuth from "../hooks/useAuth";
 
 const HomePage = () => {
-    const {msg} = useContext(AuthContext)
+    const {msg} = useAuth()
     
     return (
         <>
