@@ -12,7 +12,7 @@ import { toast } from "react-toastify";
 
 const LoginPage = () => {
   const { showPassword, handleShowPassword } = useShowPassword();
-  const {loginWithGoogle} = useAuth()
+  const {LoginWithPassword, loginWithGoogle} = useAuth()
 
   const {
     register,
@@ -20,7 +20,20 @@ const LoginPage = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = async({email, password}) => {
+    try {
+      const result = await LoginWithPassword(email, password);
+      if(result.user) {
+        return toast.success('Login successful')
+      }
+    }
+    catch (error) {
+      const errorCode = error.code;
+      if(errorCode === "auth/invalid-credential") {
+        toast.error("Email and password do not match. Please try again.")
+      }
+    }
+  };
 
   const handleLoginWithGoogle = () => {
     loginWithGoogle().then(result => {
@@ -89,7 +102,7 @@ const LoginPage = () => {
                 onClick={handleShowPassword}
                 size={17}
                 className={`${
-                  showPassword && "text-blue-500"
+                  showPassword ? "text-blue-500" : "text-gray-500"
                 } cursor-pointer absolute top-10 right-3`}
               />
             </div>
