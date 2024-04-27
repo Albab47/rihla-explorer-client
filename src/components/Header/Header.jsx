@@ -1,16 +1,17 @@
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { FcGlobe } from "react-icons/fc";
 import { FcMenu } from "react-icons/fc";
 import { IoIosClose } from "react-icons/io";
 import Button from "../Button/Button";
 import Logo from "../Logo/Logo";
+import useAuth from "../../hooks/useAuth";
+import { toast } from 'react-toastify';
 
 const Header = () => {
   const [userDropdownOpen, setUserDropdownOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const user = null;
+  const {currentUser, logoutUser} = useAuth()
 
   const handleUserDropdownOpen = () => {
     setUserDropdownOpen(true);
@@ -21,6 +22,12 @@ const Header = () => {
   const handleMenuOpen = () => {
     setMenuOpen(!menuOpen);
   };
+
+  const handleLogout = () => {
+    logoutUser().then(() => {
+      toast.success('logout successful')
+    })
+  }
 
   const navLinkStyles = ({ isActive }) =>
     isActive
@@ -35,19 +42,19 @@ const Header = () => {
 
         {/* User dropdown + menu btn */}
         <div className="flex items-center relative md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-          {user ? (
+          {currentUser ? (
             <div
               onMouseLeave={handleUserDropdownClose}
               onMouseEnter={handleUserDropdownOpen}
             >
               <button
                 type="button"
-                className="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
+                className="flex text-sm border-4 shadow-md duration-300 border-gray-300 bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
               >
                 <span className="sr-only">Open user menu</span>
                 <img
                   className="w-8 h-8 rounded-full"
-                  src="/docs/images/people/profile-picture-3.jpg"
+                  src={currentUser.photoURL}
                   alt="user photo"
                 />
               </button>
@@ -60,20 +67,15 @@ const Header = () => {
               >
                 <div className="px-4 py-3">
                   <span className="block text-sm text-gray-900 dark:text-white">
-                    Bonnie Green
+                    {currentUser.displayName || "Unknown"}
                   </span>
                   <span className="block text-sm  text-gray-500 truncate dark:text-gray-400">
-                    name@flowbite.com
+                  {currentUser.email || "Unknown"}
                   </span>
                 </div>
                 <ul className="py-2" aria-labelledby="user-menu-button">
-                  <li>
-                    <a
-                      href="#"
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
-                    >
+                  <li onClick={handleLogout} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
                       Sign out
-                    </a>
                   </li>
                 </ul>
               </div>
@@ -125,7 +127,7 @@ const Header = () => {
                 Tourists Spots
               </NavLink>
             </li>
-            {user && (
+            {currentUser && (
               <>
                 <li>
                   <NavLink

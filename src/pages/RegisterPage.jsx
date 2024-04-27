@@ -5,9 +5,13 @@ import { useForm } from "react-hook-form";
 import ErrorMsg from "../components/ErrorMsg/ErrorMsg";
 import { IoEye } from "react-icons/io5";
 import useShowPassword from "../hooks/useShowPassword";
+import useAuth from "../hooks/useAuth";
+import { toast } from "react-toastify";
+import { updateProfile } from "firebase/auth";
 
 const RegisterPage = () => {
   const { showPassword, handleShowPassword } = useShowPassword();
+  const {auth, createUser} = useAuth()
 
   const {
     register,
@@ -17,7 +21,20 @@ const RegisterPage = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = ({name, email, photoURL, password}) => {
+    createUser(email, password)
+    .then((result) => {
+      console.log(result.user);
+      updateProfile(auth.currentUser, {
+        displayName: name,
+        photoURL: photoURL,
+      }).then(() => {
+        toast.success("Account created successfully")
+      })
+    }).catch(error => {
+      console.error(error);
+    })
+  };
 
   return (
     <section className="bg-gray-50 h-screen">
