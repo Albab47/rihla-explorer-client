@@ -12,37 +12,41 @@ import { toast } from "react-toastify";
 
 const LoginPage = () => {
   const { showPassword, handleShowPassword } = useShowPassword();
-  const {LoginWithPassword, loginWithGoogle} = useAuth()
+  const { LoginWithPassword, loginWithGoogle } = useAuth();
 
   const {
     register,
     handleSubmit,
     formState: { errors },
+    reset
   } = useForm();
 
-  const onSubmit = async({email, password}) => {
+  const onSubmit = async ({ email, password }) => {
     try {
       const result = await LoginWithPassword(email, password);
-      if(result.user) {
-        return toast.success('Login successful')
+      if (result.user) {
+        reset()
+        return toast.success("Login successful");
       }
-    }
-    catch (error) {
-      const errorCode = error.code;
-      if(errorCode === "auth/invalid-credential") {
-        toast.error("Email and password do not match. Please try again.")
+    } catch (err) {
+      const errorCode = err.code;
+      if (errorCode === "auth/invalid-credential") {
+        toast.error("Email and password do not match. Please try again.");
       }
     }
   };
 
-  const handleLoginWithGoogle = () => {
-    loginWithGoogle().then(result => {
-      console.log(result.user);
-      toast.success(`Logged in as ${result.user.displayName}`);
-    }).catch(error => {
-      console.error(error);
-    })
-  }
+  const handleLoginWithGoogle = async () => {
+    try {
+      const result = await loginWithGoogle();
+      if (result.user) {
+        toast.success(`Logged in as ${result.user.displayName}`);
+      }
+    } catch (err) {
+      const errorCode = err.code;
+      toast.error(errorCode);
+    }
+  };
 
   return (
     <section className="bg-gray-50 h-screen">

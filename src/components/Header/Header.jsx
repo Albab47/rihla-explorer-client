@@ -5,13 +5,13 @@ import { IoIosClose } from "react-icons/io";
 import Button from "../Button/Button";
 import Logo from "../Logo/Logo";
 import useAuth from "../../hooks/useAuth";
-import { toast } from 'react-toastify';
+import { toast } from "react-toastify";
 
 const Header = () => {
   const [userDropdownOpen, setUserDropdownOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const {currentUser, logoutUser} = useAuth()
+  const { currentUser, logoutUser } = useAuth();
 
   const handleUserDropdownOpen = () => {
     setUserDropdownOpen(true);
@@ -23,16 +23,21 @@ const Header = () => {
     setMenuOpen(!menuOpen);
   };
 
-  const handleLogout = () => {
-    logoutUser().then(() => {
-      toast.success('logout successful')
-    })
-  }
+  const handleLogout = async () => {
+    try {
+      await logoutUser();
+      toast.success("logout successful");
+    } catch (err) {
+      toast.success("Failed to logout");
+    }
+    // logoutUser().then(() => {
+    // })
+  };
 
   const navLinkStyles = ({ isActive }) =>
     isActive
       ? "block py-2 px-3 text-white bg-amber-400 rounded md:bg-transparent md:text-amber-400 md:p-0 md:dark:text-amber-500"
-      : "block py-2 px-3 text-gray-600 rounded md:p-0 dark:text-gray-100"
+      : "block py-2 px-3 text-gray-600 rounded md:p-0 dark:text-gray-100";
 
   return (
     <nav className="bg-white border-gray-200 dark:bg-gray-900 h-16 border-b">
@@ -70,12 +75,15 @@ const Header = () => {
                     {currentUser.displayName || "Unknown"}
                   </span>
                   <span className="block text-sm  text-gray-500 truncate dark:text-gray-400">
-                  {currentUser.email || "Unknown"}
+                    {currentUser.email || "Unknown"}
                   </span>
                 </div>
                 <ul className="py-2" aria-labelledby="user-menu-button">
-                  <li onClick={handleLogout} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
-                      Sign out
+                  <li
+                    onClick={handleLogout}
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                  >
+                    Sign out
                   </li>
                 </ul>
               </div>
@@ -110,11 +118,7 @@ const Header = () => {
         >
           <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
             <li>
-              <NavLink
-                to="/"
-                className={navLinkStyles}
-                aria-current="page"
-              >
+              <NavLink to="/" className={navLinkStyles} aria-current="page">
                 Home
               </NavLink>
             </li>

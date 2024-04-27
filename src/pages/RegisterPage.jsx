@@ -16,6 +16,7 @@ const RegisterPage = () => {
   const {
     register,
     handleSubmit,
+    reset,
     watch,
     trigger,
     formState: { errors },
@@ -30,6 +31,7 @@ const RegisterPage = () => {
         photoURL: photoURL,
       }).then(() => {
         toast.success("Account created successfully")
+        reset()
       })
     }).catch(error => {
       console.error(error);
