@@ -1,6 +1,6 @@
-import PropTypes, { any } from "prop-types";
+import PropTypes from "prop-types";
 import {
-    GoogleAuthProvider,
+  GoogleAuthProvider,
   createUserWithEmailAndPassword,
   getAuth,
   onAuthStateChanged,
@@ -19,24 +19,40 @@ const AuthProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  const googleProvider = new GoogleAuthProvider();
+
   // Register new user
   const createUser = (email, password) => {
     setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
+  // Logout user
   const logoutUser = () => {
-    return signOut(auth)
-  }
+    return signOut(auth);
+  };
+
+  // Google login
+  const loginWithGoogle = () => {
+    setLoading(true);
+    return signInWithPopup(auth, googleProvider);
+  };
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       setCurrentUser(user);
-      setLoading(false)
+      setLoading(false);
     });
   }, [currentUser]);
 
-  const authInfo = { auth, loading, createUser, currentUser, logoutUser };
+  const authInfo = {
+    auth,
+    loading,
+    createUser,
+    currentUser,
+    loginWithGoogle,
+    logoutUser,
+  };
 
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
