@@ -1,4 +1,10 @@
+import useSpotsData from "../../hooks/useSpotsData";
+import SpotCard from "../SpotCard/SpotCard";
+
 const TouristSpots = () => {
+  const { spots } = useSpotsData();
+  console.log(spots);
+
   return (
     <section className="my-24">
       <div className="max-w-screen-xl mx-auto px-5">
@@ -14,7 +20,9 @@ const TouristSpots = () => {
 
         {/* Spots card */}
         <div className="grid gap-5 sm:grid-cols-2 md:grid-cols-3">
-            
+          {spots?.map((spot) => (
+            <SpotCard key={spot._id} spot={spot} />
+          ))}
         </div>
       </div>
     </section>

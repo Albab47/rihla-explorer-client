@@ -1,5 +1,5 @@
 import loginImg from "../assets/login.svg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Logo from "../components/Logo/Logo";
 import { useForm } from "react-hook-form";
 import ErrorMsg from "../components/ErrorMsg/ErrorMsg";
@@ -13,6 +13,7 @@ import { toast } from "react-toastify";
 const LoginPage = () => {
   const { showPassword, handleShowPassword } = useShowPassword();
   const { LoginWithPassword, loginWithGoogle } = useAuth();
+  const navigate = useNavigate()
 
   const {
     register,
@@ -26,6 +27,7 @@ const LoginPage = () => {
       const result = await LoginWithPassword(email, password);
       if (result.user) {
         reset()
+        navigate('/')
         return toast.success("Login successful");
       }
     } catch (err) {
