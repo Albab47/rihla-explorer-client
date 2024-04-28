@@ -40,7 +40,7 @@ const Header = () => {
       : "block py-2 px-3 text-gray-600 rounded md:p-0 dark:text-gray-100";
 
   return (
-    <nav className="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
+    <nav className="bg-white dark:bg-gray-900 h-16 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
       <div className="max-w-screen-xl relative flex flex-wrap items-center justify-between mx-auto p-4">
         {/* website logo */}
         <Logo />
@@ -131,29 +131,24 @@ const Header = () => {
                 Tourists Spots
               </NavLink>
             </li>
-            {currentUser && (
-              <>
-                <li>
-                  <NavLink
-                    to="/add-spot"
-                    className={navLinkStyles}
-                    aria-current="page"
-                  >
-                    Add Spots
-                  </NavLink>
-                </li>
-
-                <li>
-                  <NavLink
-                    to="/my-list"
-                    className={navLinkStyles}
-                    aria-current="page"
-                  >
-                    My List
-                  </NavLink>
-                </li>
-              </>
-            )}
+            <li>
+              <NavLink
+                to="/add-spot"
+                className={navLinkStyles}
+                aria-current="page"
+              >
+                Add Spots
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/my-list"
+                className={navLinkStyles}
+                aria-current="page"
+              >
+                My List
+              </NavLink>
+            </li>
           </ul>
         </div>
       </div>

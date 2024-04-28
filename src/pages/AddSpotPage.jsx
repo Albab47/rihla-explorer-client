@@ -2,7 +2,7 @@
 const AddSpotPage = () => {
     return (
         <div>
-            Add spot page
+            <h2 className="">Add spot page</h2>
         </div>
     );
 };
