@@ -6,7 +6,7 @@ export default {
   ],
   theme: {
     fontFamily: {
-      display: ['"Merienda"', "cursive"],
+      display: ['"Acme"', "sans-serif"],
     },
     extend: {
       colors: {
