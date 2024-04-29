@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import {
   GoogleAuthProvider,
+  TwitterAuthProvider,
   createUserWithEmailAndPassword,
   getAuth,
   onAuthStateChanged,
@@ -21,6 +22,7 @@ const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   const googleProvider = new GoogleAuthProvider();
+  const twitterProvider = new TwitterAuthProvider();
 
   // Register new user
   const createUser = (email, password) => {
@@ -47,6 +49,13 @@ const AuthProvider = ({ children }) => {
     return signInWithPopup(auth, googleProvider);
   };
 
+  // Twitter login
+  const loginWithTwitter = () => {
+    setLoading(true)
+    setLoading(true);
+    return signInWithPopup(auth, twitterProvider);
+  };
+
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       setCurrentUser(user);
@@ -60,6 +69,7 @@ const AuthProvider = ({ children }) => {
     createUser,
     currentUser,
     loginWithGoogle,
+    loginWithTwitter,
     LoginWithPassword,
     logoutUser,
   };

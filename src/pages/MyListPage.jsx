@@ -2,30 +2,42 @@ import { Link, useLoaderData, useNavigate } from "react-router-dom";
 import { MdEdit } from "react-icons/md";
 import { ImBin } from "react-icons/im";
 import { toast } from "react-toastify";
+import Swal from "sweetalert2";
 
 const MyListPage = () => {
   const userSpots = useLoaderData([]);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   console.log(userSpots);
 
   const handleDelete = async (id) => {
-    try {
+    const result = await Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    });
+    if (result.isConfirmed) {
       const res = await fetch(`http://localhost:5000/delete-spot/${id}`, {
-        method: 'DELETE',
-        headers: {'content-type': 'application/json'}
+        method: "DELETE",
+        headers: { "content-type": "application/json" },
       });
       const data = await res.json();
       if (data.deletedCount > 0) {
-        toast.success("Spot deleted successfully");
-        navigate('/tourist-spots')
+        Swal.fire({
+          title: "Deleted!",
+          text: "Your Spot has been deleted.",
+          icon: "success",
+        });
+        navigate("/tourist-spots");
       }
-    } catch (err) {
-      console.log(err);
     }
   };
 
-  if(userSpots == []) {
-    return <h1 className="text-amber-600 text-5xl">No spot found!</h1>
+  if (userSpots == []) {
+    return <h1 className="text-amber-600 text-5xl">No spot found!</h1>;
   }
 
   return (
