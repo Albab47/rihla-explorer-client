@@ -42,6 +42,7 @@ const LoginPage = () => {
     try {
       const result = await loginWithGoogle();
       if (result.user) {
+        navigate('/')
         toast.success(`Logged in as ${result.user.displayName}`);
       }
     } catch (err) {

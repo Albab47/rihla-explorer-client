@@ -13,7 +13,6 @@ const useSpotsData = () => {
     const fetchData = async () => {
       const res = await fetch("http://localhost:5000/spots");
       const data = await res.json()
-      console.log(data);
       setSpots(data)
     };
     fetchData()

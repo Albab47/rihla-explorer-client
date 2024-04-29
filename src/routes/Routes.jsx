@@ -4,10 +4,11 @@ import MainLayout from "../layouts/MainLayout";
 import AddSpotPage from "../pages/AddSpotPage";
 import LoginPage from "../pages/LoginPage";
 import RegisterPage from "../pages/RegisterPage";
-import MyListPage from "../pages/MyListPage";
+import MyListPage, { myListLoader } from "../pages/MyListPage";
 import TouristSpotsPage from "../pages/TouristSpotsPage";
 import PrivateRoute from "./PrivateRoute";
 import SpotDetailsPage, { spotLoader } from "../pages/SpotDetailsPage";
+import UpdateSpotPage from "../pages/UpdateSpotPage";
 
 const router = createBrowserRouter([
   {
@@ -32,7 +33,7 @@ const router = createBrowserRouter([
         },
         {
           path: '/spots/:id',
-          element: <SpotDetailsPage />,
+          element: <PrivateRoute><SpotDetailsPage /></PrivateRoute>,
           loader: spotLoader,
         },
         {
@@ -40,8 +41,14 @@ const router = createBrowserRouter([
           element: <PrivateRoute><AddSpotPage /></PrivateRoute>,
         },
         {
-          path: '/my-list',
+          path: '/update-spot/:id',
+          element: <PrivateRoute><UpdateSpotPage /></PrivateRoute>,
+          loader: spotLoader
+        },
+        {
+          path: '/my-list/:email',
           element: <PrivateRoute><MyListPage /></PrivateRoute>,
+          loader: myListLoader
         }
     ]
   },

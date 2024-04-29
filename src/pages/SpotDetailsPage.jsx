@@ -49,7 +49,7 @@ const SpotDetailsPage = () => {
 
           <hr className="h-px my-4 bg-gray-200 border-0 dark:bg-gray-700"></hr>
 
-          <h3 className="mb-2">Spot details</h3>
+          <h3 className="mb-2 font-bold">Spot details:</h3>
           <ul className="list-disc list-inside pl-2">
             <li>Average const - ${avgCost} - $100</li>
             <li>Season - {season}</li>

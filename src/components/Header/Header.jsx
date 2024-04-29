@@ -30,8 +30,6 @@ const Header = () => {
     } catch (err) {
       toast.success("Failed to logout");
     }
-    // logoutUser().then(() => {
-    // })
   };
 
   const navLinkStyles = ({ isActive }) =>
@@ -142,7 +140,7 @@ const Header = () => {
             </li>
             <li>
               <NavLink
-                to="/my-list"
+                to={`/my-list/${currentUser?.email}`}
                 className={navLinkStyles}
                 aria-current="page"
               >
