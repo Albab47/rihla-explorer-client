@@ -1,13 +1,25 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-
-// {"_id":{"$oid":"662e715d009a4cbf113c8db9"},"spotName":"Petra: one of the 7 wonders","country":"Jordan","location":"Ma'an Governorate, Jordan","avgCost":"100","season":"Summer","travelTime":"5 days","totalVisitors":"800000","photoURL":"https://i.ibb.co/m9D5RyS/petra-jordan.jpg",}
+import { HiOutlineCurrencyDollar } from "react-icons/hi2";
+import { WiTime2 } from "react-icons/wi";
+import { FaPeopleLine } from "react-icons/fa6";
+import { FaCloudSunRain } from "react-icons/fa6";
+import { FaArrowRightLong } from "react-icons/fa6";
 
 const SpotCard = ({ spot }) => {
-  const { _id, spotName, photoURL, totalVisitors, season, travelTime, avgCost} = spot;
+  const {
+    _id,
+    spotName,
+    photoURL,
+    totalVisitors,
+    season,
+    travelTime,
+    avgCost,
+  } = spot;
 
   return (
-    <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+    <div className="max-w-sm bg-white border border-gray-100 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700 hover:scale-105 duration-300">
+      {/* Card img */}
       <Link to={`/spots/${_id}`}>
         <img
           className="rounded-t-lg object-cover object-center w-full h-64"
@@ -16,19 +28,24 @@ const SpotCard = ({ spot }) => {
         />
       </Link>
 
-      <div className="p-5">
-        <Link to={`/spots/${_id}`}>
-          <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+      {/* Card content */}
+      <div className="p-5 flex flex-col h-[calc(50%-1.25rem)]">
+        <Link to={`/spots/${_id}`} className="">
+          <h5 className="mb-2 flex-grow text-2xl font-semibold tracking-tight text-dark dark:text-white">
             {spotName}
           </h5>
         </Link>
-        
-        <a
-          href="#"
-          className="btn-primary"
-        >
-          Read more
-        </a>
+
+        <div className="space-y-2 *:text-light mb-6">
+            <p><HiOutlineCurrencyDollar className="inline -mt-1 size-5 text-amber-500 mr-1" /> Average cost: ${avgCost}</p>
+            <p><WiTime2 className="inline -mt-1 size-5 text-amber-500 mr-1" /> Travel time: {travelTime}</p>
+            <p><FaPeopleLine className="inline -mt-1 size-5 text-amber-500 mr-1" /> Total Visitors Per Year: {totalVisitors}</p>
+            <p><FaCloudSunRain className="inline -mt-1 size-5 text-amber-400 mr-1" /> Seasonality: {season}</p>
+        </div>
+
+        <Link type="button" to={`/spots/${_id}`} className="btn-secondary flex justify-center mt-auto">
+          View details <FaArrowRightLong className="ml-2" />
+        </Link>
       </div>
     </div>
   );

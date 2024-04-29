@@ -1,8 +1,10 @@
+import TouristSpots from "../components/TouristSpots/TouristSpots";
+
 const TouristSpotsPage = () => {
     return (
-        <div>
-            All spots here
-        </div>
+        <>
+          <TouristSpots />
+        </>
     );
 };
 
