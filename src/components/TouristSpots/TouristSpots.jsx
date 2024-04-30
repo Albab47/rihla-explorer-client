@@ -3,17 +3,21 @@ import { FaFilter } from "react-icons/fa";
 
 const TouristSpots = ({ isHome = false }) => {
   const [spots, setSpots] = useState([]);
+  const [loading, setLoading] = useState(true)
   const [filterOpen, setFilterOpen] = useState(false);
   const [toggle, setToggle] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
+      setLoading(true)
       const res = await fetch("https://rihla-explorer-server.vercel.app/spots");
       const data = await res.json();
       if (isHome) {
+        setLoading(false)
         return setSpots(data.slice(0, 6));
       }
       setSpots(data);
+      setLoading(false)
     };
     fetchData();
   }, [isHome, toggle]);
@@ -31,6 +35,10 @@ const TouristSpots = ({ isHome = false }) => {
     const data = await res.json();
     setSpots(data);
   };
+
+  if(loading) {
+    return <Loader />
+  }
 
   return (
     <section className="py-24">
@@ -94,6 +102,7 @@ const TouristSpots = ({ isHome = false }) => {
 
 import PropTypes from "prop-types";
 import { useEffect, useState } from "react";
+import Loader from "../Loader/Loader";
 
 TouristSpots.propTypes = {
   isHome: PropTypes.bool,

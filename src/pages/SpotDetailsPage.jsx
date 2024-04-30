@@ -1,9 +1,12 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigation } from "react-router-dom";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { IoEarthSharp } from "react-icons/io5";
+import Loader from "../components/Loader/Loader";
 
 const SpotDetailsPage = () => {
   const spot = useLoaderData();
+  const navigation = useNavigation()
+  
   const {
     spotName,
     photoURL,
@@ -15,6 +18,10 @@ const SpotDetailsPage = () => {
     country,
     location
   } = spot;
+
+  if(navigation.state === "loading") {
+    return <Loader />
+  }
 
   return (
     <article className="py-28">

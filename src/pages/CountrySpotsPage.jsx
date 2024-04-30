@@ -1,12 +1,18 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigation } from "react-router-dom";
 import SpotCard from "../components/SpotCard/SpotCard";
 import { useState } from "react";
+import Loader from "../components/Loader/Loader";
 
 const CountrySpotsPage = () => {
   const loadedSpots = useLoaderData();
+  const navigation = useNavigation()
   const [spots, setSpots] = useState(loadedSpots)
-  console.log(spots);
+  const isLoading = navigation.state === "loading";
 
+  if(isLoading) {
+    return <Loader />
+  }
+  
   return (
     <div className="max-w-screen-xl mx-auto px-5">
       {/* heading */}
