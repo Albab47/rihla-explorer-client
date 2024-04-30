@@ -3,6 +3,7 @@ import slider2 from "../../assets/slider2.jpg";
 import slider3 from "../../assets/slider3.jpg";
 import desertArt from "../../assets/desert-banner.jpg";
 import SliderContent from "../SliderContent/SliderContent";
+import { Fade } from "react-awesome-reveal";
 
 // left-4 right-5 lg:left-40 2xl:left-80
 

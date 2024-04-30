@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import CountryCard from "../CountryCard/CountryCard";
 import Loader from "../Loader/Loader";
+import { Typewriter } from 'react-simple-typewriter'
 
 const Countries = () => {
   const [countries, setCountries] = useState([])
@@ -26,7 +27,11 @@ const Countries = () => {
       {/* Grid container */}
       <div className="max-w-screen-xl mx-auto mt-14 px-4 grid gap-4 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         <div className="col-span-full md:col-span-2 flex justify-center items-center bg-amber-50 p-5 rounded-2xl">
-            <h3 className="text-2xl md:text-4xl text-amber-600 font-display ">Explore the beauty of Middle East</h3>
+            <h3 className="text-2xl md:text-4xl text-amber-600 font-display ">
+              <Typewriter words={[
+                "Explore the beauty of Middle East",
+              ]} />
+            </h3>
         </div>
 
         {countries.map(country => (

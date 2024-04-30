@@ -8,7 +8,7 @@ const Features = () => {
       <div className="max-w-screen-xl flex flex-col-reverse px-4 mx-auto lg:flex-row">
 
         <div className="flex flex-col justify-center px-6 py-8 space-y-6 rounded-sm sm:p-8 lg:p-12 lg:w-1/2">
-          <h1 className="text-xl font-bold text-amber-700 dark:text-amber-500">What is Rihla Explorer?</h1>
+          <h1 className="text-2xl font-bold text-amber-700 dark:text-amber-500">What is Rihla Explorer?</h1>
           <div className="flex space-x-2 sm:space-x-4">
             <FcApproval className="size-7" />
             <div className="space-y-2 text-light dark:text-gray-300">
