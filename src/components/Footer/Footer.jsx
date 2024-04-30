@@ -35,7 +35,7 @@ const Footer = () => {
               <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
                 Nav links
               </h2>
-              <ul className="text-gray-500 dark:text-gray-400 font-medium">
+              <ul className="text-gray-500 dark:text-gray-400">
                 <li className="mb-4">
                   <Link to="/tourist-spots" className="hover:underline">
                     All tourist spots
@@ -50,7 +50,7 @@ const Footer = () => {
               <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
                 Follow us
               </h2>
-              <ul className="text-gray-500 dark:text-gray-400 font-medium">
+              <ul className="text-gray-500 dark:text-gray-400">
                 <li className="mb-4">
                   <Link className="hover:underline ">Github</Link>
                 </li>
@@ -65,7 +65,7 @@ const Footer = () => {
               <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
                 Legal
               </h2>
-              <ul className="text-gray-500 dark:text-gray-400 font-medium">
+              <ul className="text-gray-500 dark:text-gray-400">
                 <li className="mb-4">
                   <Link to="#" className="hover:underline">
                     Privacy Policy
@@ -83,7 +83,7 @@ const Footer = () => {
               <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
                 Contact us
               </h2>
-              <p className="text-light">You can contact us by our email or you can directly call us at rihla@gmail.com</p>
+              <p className="text-light">You can contact us by our email contact@rihla.com</p>
             </div>
             </div>
           </div>
