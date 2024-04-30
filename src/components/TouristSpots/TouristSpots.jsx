@@ -45,7 +45,7 @@ const TouristSpots = ({ isHome = false }) => {
       <div className="max-w-screen-xl mx-auto px-5">
         {/* heading */}
         <header className="text-center max-w-xl mx-auto space-y-5">
-          <h1 className="text-3xl md:text-5xl font-display ">
+          <h1 className="text-3xl md:text-5xl font-display dark:text-white">
             {isHome ? "Popular" : "Browse"} Tourists Spots
           </h1>
           {isHome && (

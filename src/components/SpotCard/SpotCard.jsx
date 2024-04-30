@@ -18,7 +18,7 @@ const SpotCard = ({ spot }) => {
   } = spot;
 
   return (
-    <div className="max-w-sm bg-white border border-gray-100 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700 hover:scale-105 duration-300">
+    <div className="max-w-sm bg-white border border-gray-100 transition-all hover:border-amber-300 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700 hover:scale-105 duration-300">
       {/* Card img */}
       <Link>
         <img
