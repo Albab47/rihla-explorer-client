@@ -33,7 +33,7 @@ const TouristSpots = ({ isHome = false }) => {
   };
 
   return (
-    <section className="my-24">
+    <section className="py-24">
       <div className="max-w-screen-xl mx-auto px-5">
         {/* heading */}
         <header className="text-center max-w-xl mx-auto space-y-5">
@@ -41,7 +41,7 @@ const TouristSpots = ({ isHome = false }) => {
             {isHome ? "Popular" : "Browse"} Tourists Spots
           </h1>
           {isHome && (
-            <p className="text-sm sm:text-base text-light">
+            <p className="text-sm sm:text-base text-light dark:dark:text-gray-400">
               Embark on a journey through the Middle East's iconic tourist
               spots. Explore ancient wonders, breathtaking landscapes in one
               unforgettable adventure.

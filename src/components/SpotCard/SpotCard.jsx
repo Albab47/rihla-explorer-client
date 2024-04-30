@@ -36,7 +36,7 @@ const SpotCard = ({ spot }) => {
           </h5>
         </Link>
 
-        <div className="space-y-2 *:text-light mb-6">
+        <div className="space-y-2 *:text-light mb-6 *:dark:dark:text-gray-400">
             <p><HiOutlineCurrencyDollar className="inline -mt-1 size-5 text-amber-500 mr-1" /> Average cost: ${avgCost}</p>
             <p><WiTime2 className="inline -mt-1 size-5 text-amber-500 mr-1" /> Travel time: {travelTime}</p>
             <p><FaPeopleLine className="inline -mt-1 size-5 text-amber-500 mr-1" /> Total Visitors Per Year: {totalVisitors}</p>

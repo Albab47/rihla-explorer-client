@@ -6,10 +6,13 @@ import Button from "../Button/Button";
 import Logo from "../Logo/Logo";
 import useAuth from "../../hooks/useAuth";
 import { toast } from "react-toastify";
+import { IoSunnyOutline } from "react-icons/io5";
+import { IoMoon } from "react-icons/io5";
 
 const Header = () => {
   const [userDropdownOpen, setUserDropdownOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [darkModeToggle, setDarkModeToggle] = useState(false);
 
   const { currentUser, logoutUser } = useAuth();
 
@@ -32,6 +35,11 @@ const Header = () => {
     }
   };
 
+  const handleDarkModeToggle = () => {
+    setDarkModeToggle(!darkModeToggle)
+    document.body.classList.toggle("dark")
+  }
+
   const navLinkStyles = ({ isActive }) =>
     isActive
       ? "block py-2 px-3 text-white bg-amber-400 rounded md:bg-transparent md:text-amber-400 md:p-0 md:dark:text-amber-500"
@@ -45,6 +53,15 @@ const Header = () => {
 
         {/* User dropdown + menu btn */}
         <div className="flex items-center relative md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+          <div>
+            <button onClick={handleDarkModeToggle} className="border bg-white size-8 mr-4 rounded-md flex justify-center items-center">
+              {darkModeToggle ? (
+                <IoSunnyOutline />
+              ) : (
+                <IoMoon />
+              )}
+            </button>
+          </div>
           {currentUser ? (
             <div
               onMouseLeave={handleUserDropdownClose}

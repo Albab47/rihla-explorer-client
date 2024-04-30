@@ -4,11 +4,11 @@ import TouristSpots from "../components/TouristSpots/TouristSpots";
 
 const HomePage = () => {
   return (
-    <>
+    <div>
       <HeroSliders />
       <TouristSpots isHome={true} />
       <Countries />
-    </>
+    </div>
   );
 };
 

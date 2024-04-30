@@ -4,11 +4,11 @@ import Footer from '../components/Footer/Footer';
 
 const MainLayout = () => {
     return (
-        <>
+        <div className="dark:bg-gray-700">
             <Header />
             <Outlet />
             <Footer />
-        </>
+        </div>
     );
 };
 

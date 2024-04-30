@@ -39,14 +39,14 @@ const RegisterPage = () => {
   };
 
   return (
-    <section className="bg-gray-50 h-screen">
+    <section className="bg-gray-50 h-screen dark:bg-gray-700">
       {/* container */}
       <div className="max-w-screen-xl mx-auto pt-36 px-4 flex flex-col items-center md:flex-row">
         <div className="w-full sm:w-1/2">
           <img src={registerImg} alt="" />
         </div>
 
-        <div className="w-full max-w-xl p-8 bg-white space-y-3 rounded-xl border text-gray-800">
+        <div className="w-full max-w-xl p-8 bg-white space-y-3 rounded-xl border text-gray-800 dark:bg-gray-800 dark:border-gray-700">
           <Logo />
           <h1 className="text-2xl font-semibold pt-3">Create an account</h1>
 

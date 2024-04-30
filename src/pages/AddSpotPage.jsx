@@ -39,11 +39,11 @@ const AddSpotPage = () => {
   }
 
   return (
-    <section className="bg-gray-50 h-screen">
+    <section className="bg-gray-50 h-screen dark:bg-gray-700">
       {/* container */}
       <div className="max-w-3xl mx-auto pt-24 px-4 flex flex-col items-center md:flex-row">
-        <div className="w-full p-8 bg-white space-y-3 rounded-xl border text-gray-800">
-          <h1 className="text-2xl mb-8 font-semibold pt-3 text-center">
+        <div className="w-full p-8 bg-white space-y-3 rounded-xl border dark:border-gray-900 text-gray-800 dark:bg-gray-800">
+          <h1 className="text-2xl mb-8 font-semibold pt-3 text-center dark:text-gray-200">
             Add new spot
           </h1>
 

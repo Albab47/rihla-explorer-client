@@ -41,7 +41,7 @@ const MyListPage = () => {
   }
 
   return (
-    <section className="my-24 px-4">
+    <section className="py-24 px-4">
       <div className="relative max-w-screen-xl mx-auto overflow-x-auto shadow-md sm:rounded-lg">
         <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
           <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
