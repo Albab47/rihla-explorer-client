@@ -83,7 +83,7 @@ const TouristSpots = ({ isHome = false }) => {
         )}
 
         {/* Spots card */}
-        <div className="grid gap-5 sm:grid-cols-2 md:grid-cols-3 mt-6 justify-center">
+        <div className="grid gap-5 sm:grid-cols-2 md:grid-cols-3 mt-8 justify-center">
           {spots.map((spot) => (
             <SpotCard key={spot._id} spot={spot} />
           ))}

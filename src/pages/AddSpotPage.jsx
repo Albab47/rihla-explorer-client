@@ -3,6 +3,7 @@ import ErrorMsg from "../components/ErrorMsg/ErrorMsg";
 import { toast } from "react-toastify";
 import useAuth from "../hooks/useAuth.js";
 import { useNavigate } from "react-router-dom";
+import Loader from "../components/Loader/Loader.jsx";
 
 const AddSpotPage = () => {
   const {
@@ -11,7 +12,7 @@ const AddSpotPage = () => {
     formState: { errors },
     reset,
   } = useForm();
-  const {currentUser} = useAuth();
+  const {currentUser, loading} = useAuth();
   const navigate = useNavigate()
 
 
@@ -33,6 +34,10 @@ const AddSpotPage = () => {
         }
       });
   };
+
+  if(loading) {
+    return <Loader />
+  }
 
   return (
     <section className="bg-gray-50 h-screen">
