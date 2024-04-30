@@ -1,11 +1,11 @@
 import TouristSpots from "../components/TouristSpots/TouristSpots";
 
 const TouristSpotsPage = () => {
-    return (
-        <>
-          <TouristSpots />
-        </>
-    );
+  return (
+    <>
+      <TouristSpots />
+    </>
+  );
 };
 
 export default TouristSpotsPage;

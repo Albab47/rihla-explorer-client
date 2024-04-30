@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 
 const useSpotsData = () => {
-  const [spots, setSpots] = useState([]);
+  const [loadedSpots, setLoadedSpots] = useState([]);
   const [toggle, setToggle] = useState(false);
 
   const refetch = () => {
@@ -13,12 +13,12 @@ const useSpotsData = () => {
     const fetchData = async () => {
       const res = await fetch("http://localhost:5000/spots");
       const data = await res.json()
-      setSpots(data)
+      setLoadedSpots(data)
     };
     fetchData()
   }, [toggle]);
 
-  return {spots, refetch};
+  return {loadedSpots, refetch};
 };
 
 export default useSpotsData;

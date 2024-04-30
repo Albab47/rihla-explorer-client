@@ -14,10 +14,8 @@ const UpdateSpotPage = () => {
   const navigate = useNavigate()
 
   const spot = useLoaderData()
-  console.log(spot);
 
   const onUpdateSpot = (data) => {
-    console.log(data);
 
     fetch(`http://localhost:5000/update-spot/${spot._id}`, {
       method: "PUT",
@@ -26,7 +24,6 @@ const UpdateSpotPage = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data.modifiedCount > 0) {
           toast.success("Spot Updated successfully");
           reset();
@@ -67,21 +64,27 @@ const UpdateSpotPage = () => {
               />
             </div>
 
+            {/* season options */}
             <div className="sm:col-span-3">
               <label
                 htmlFor="country"
                 className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
               >
-                Country name
+                Country
               </label>
-              <input
-                type="text"
+              <select
                 id="country"
-                placeholder="Country"
-                defaultValue={spot.country}
-                className="shadow-sm bg-gray-50 border border-gray-100 text-gray-900 text-sm rounded-lg focus:ring-amber-500 focus:border-amber-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-amber-500 dark:focus:border-amber-500 dark:shadow-sm-light"
-                {...register("country", { required: true })}
-              />
+                {...register("country")}
+                className="block w-full p-2 text-sm text-gray-900 border border-gray-100 rounded-lg bg-gray-50 focus:ring-amber-500 focus:border-amber-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-amber-500 dark:focus:border-amber-500"
+              >
+                <option defaultValue={spot.country}>{spot.country}</option>
+                <option value="Jordan">Jordan</option>
+                <option value="Oman">Oman</option>
+                <option value="Yemen">Yemen</option>
+                <option value="UAE">UAE</option>
+                <option value="Kuwait">Kuwait</option>
+                <option value="Baalbek">Baalbek</option>
+              </select>
             </div>
 
             <div className="sm:col-span-3">
