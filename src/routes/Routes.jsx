@@ -9,11 +9,13 @@ import TouristSpotsPage from "../pages/TouristSpotsPage";
 import PrivateRoute from "./PrivateRoute";
 import SpotDetailsPage, { spotLoader } from "../pages/SpotDetailsPage";
 import UpdateSpotPage from "../pages/UpdateSpotPage";
+import ErrorPage from "../pages/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout />,
+    errorElement: <ErrorPage />,
     children: [
         {
           path: '/',

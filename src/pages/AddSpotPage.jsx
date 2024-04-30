@@ -18,7 +18,6 @@ const AddSpotPage = () => {
 
   const onAddSpot = (data) => {
     console.log(data);
-
     fetch("http://localhost:5000/spots", {
       method: "POST",
       headers: { "content-type": "application/json" },
