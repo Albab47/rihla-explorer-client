@@ -1,11 +1,8 @@
 import slider1 from "../../assets/slider1.jpg";
 import slider2 from "../../assets/slider2.jpg";
 import slider3 from "../../assets/slider3.jpg";
-import desertArt from "../../assets/desert-banner.jpg";
+import slider4 from "../../assets/slider4.jpg";
 import SliderContent from "../SliderContent/SliderContent";
-import { Fade } from "react-awesome-reveal";
-
-// left-4 right-5 lg:left-40 2xl:left-80
 
 const HeroSliders = () => {
   return (
@@ -44,7 +41,7 @@ const HeroSliders = () => {
           />
         </swiper-slide>
         <swiper-slide>
-          <img src={desertArt} />
+          <img src={slider4} />
           <SliderContent
             title="Explore the Hidden Gems of the Middle East"
             desc="Venture off the beaten path and discover the lesser-known wonders of the Middle East. From hidden villages nestled in lush valleys to secluded beaches with crystal-clear waters, these hidden gems promise unforgettable experiences"
@@ -68,7 +65,7 @@ const HeroSliders = () => {
           <img src={slider3} />
         </swiper-slide>
         <swiper-slide>
-          <img src={desertArt} />
+          <img src={slider4} />
         </swiper-slide>
       </swiper-container>
     </section>
