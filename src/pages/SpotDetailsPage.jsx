@@ -64,7 +64,7 @@ const SpotDetailsPage = () => {
 };
 
 const spotLoader = async ({ params }) => {
-  const res = await fetch(`http://localhost:5000/spots/${params.id}`);
+  const res = await fetch(`https://rihla-explorer-server.vercel.app/spots/${params.id}`);
   const data = await res.json();
   return data;
 };

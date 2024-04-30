@@ -10,6 +10,7 @@ import PrivateRoute from "./PrivateRoute";
 import SpotDetailsPage, { spotLoader } from "../pages/SpotDetailsPage";
 import UpdateSpotPage from "../pages/UpdateSpotPage";
 import ErrorPage from "../pages/ErrorPage";
+import CountrySpotsPage, { countrySpotsLoader } from "../pages/CountrySpotsPage";
 
 const router = createBrowserRouter([
   {
@@ -32,6 +33,11 @@ const router = createBrowserRouter([
         {
           path: '/tourist-spots',
           element: <TouristSpotsPage />,
+        },
+        {
+          path: '/tourist-spots/:country',
+          element: <CountrySpotsPage />,
+          loader: countrySpotsLoader,
         },
         {
           path: '/spots/:id',

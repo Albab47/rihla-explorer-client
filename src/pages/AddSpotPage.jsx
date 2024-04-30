@@ -18,7 +18,7 @@ const AddSpotPage = () => {
 
   const onAddSpot = (data) => {
     console.log(data);
-    fetch("http://localhost:5000/spots", {
+    fetch("https://rihla-explorer-server.vercel.app/spots", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(data),

@@ -20,7 +20,7 @@ const SpotCard = ({ spot }) => {
   return (
     <div className="max-w-sm bg-white border border-gray-100 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700 hover:scale-105 duration-300">
       {/* Card img */}
-      <Link to={`/spots/${_id}`}>
+      <Link>
         <img
           className="rounded-t-lg object-cover object-center w-full h-64"
           src={photoURL}
@@ -30,7 +30,7 @@ const SpotCard = ({ spot }) => {
 
       {/* Card content */}
       <div className="p-5 flex flex-col h-[calc(50%-1.25rem)]">
-        <Link to={`/spots/${_id}`} className="">
+        <Link>
           <h5 className="mb-2 flex-grow text-2xl font-semibold tracking-tight text-dark dark:text-white">
             {spotName}
           </h5>

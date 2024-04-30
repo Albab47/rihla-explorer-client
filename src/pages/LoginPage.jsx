@@ -12,7 +12,7 @@ import { toast } from "react-toastify";
 
 const LoginPage = () => {
   const { showPassword, handleShowPassword } = useShowPassword();
-  const { LoginWithPassword, loginWithGoogle } = useAuth();
+  const { LoginWithPassword, loginWithGoogle, loginWithTwitter } = useAuth();
   const navigate = useNavigate()
 
   const {
@@ -50,6 +50,20 @@ const LoginPage = () => {
       toast.error(errorCode);
     }
   };
+
+  const handleLoginWithTwitter = async() => {
+    try {
+      const result = await loginWithTwitter();
+      console.log(result);
+      // if (result.user) {
+      //   navigate('/')
+      //   toast.success(`Logged in as ${result.user.displayName}`);
+      // }
+    } catch (err) {
+      const errorCode = err.code;
+      toast.error(errorCode);
+    }
+  }
 
   return (
     <section className="bg-gray-50 h-screen">
@@ -142,6 +156,7 @@ const LoginPage = () => {
               Login with Google
             </button>
             <button
+              onClick={handleLoginWithTwitter}
               type="button"
               className="text-white bg-[#24292F] hover:bg-[#24292F]/90 focus:ring-4 focus:outline-none focus:ring-[#24292F]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center justify-center dark:focus:ring-gray-500 dark:hover:bg-[#050708]/30 me-2 mb-2"
             >

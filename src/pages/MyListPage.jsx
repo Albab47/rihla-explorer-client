@@ -20,7 +20,7 @@ const MyListPage = () => {
       confirmButtonText: "Yes, delete it!",
     });
     if (result.isConfirmed) {
-      const res = await fetch(`http://localhost:5000/delete-spot/${id}`, {
+      const res = await fetch(`https://rihla-explorer-server.vercel.app/delete-spot/${id}`, {
         method: "DELETE",
         headers: { "content-type": "application/json" },
       });
@@ -99,7 +99,7 @@ const MyListPage = () => {
 };
 
 const myListLoader = async ({ params }) => {
-  const res = await fetch(`http://localhost:5000/my-list/${params.email}`);
+  const res = await fetch(`https://rihla-explorer-server.vercel.app/my-list/${params.email}`);
   const data = await res.json();
   return data;
 };

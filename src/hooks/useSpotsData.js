@@ -11,7 +11,7 @@ const useSpotsData = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await fetch("http://localhost:5000/spots");
+      const res = await fetch("https://rihla-explorer-server.vercel.app/spots");
       const data = await res.json()
       setLoadedSpots(data)
     };

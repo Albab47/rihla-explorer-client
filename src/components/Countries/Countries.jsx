@@ -6,7 +6,7 @@ const Countries = () => {
 
   useEffect(() => {
     const fetchData = async() => {
-        const res = await fetch('http://localhost:5000/countries');
+        const res = await fetch('https://rihla-explorer-server.vercel.app/countries');
         const data = await res.json();
         setCountries(data)
     }

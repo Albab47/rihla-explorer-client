@@ -17,7 +17,7 @@ const UpdateSpotPage = () => {
 
   const onUpdateSpot = (data) => {
 
-    fetch(`http://localhost:5000/update-spot/${spot._id}`, {
+    fetch(`https://rihla-explorer-server.vercel.app/update-spot/${spot._id}`, {
       method: "PUT",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(data),
